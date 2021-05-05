@@ -1,0 +1,13 @@
+<div *ngFor="let auto of automoviles">
+    <div class="list">
+        <p (click)="onSelect(auto)">{{auto.submarca}}</p>
+    </div>
+
+
+
+</div>
+<hr>
+<div *ngIf="habilitarDesc">
+    Marca: {{autoSelect.marca}}
+    <hr>Descripcion del auto: {{autoSelect.descripcion}}
+</div>

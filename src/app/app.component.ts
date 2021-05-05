@@ -7,4 +7,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mi-catalogo';
+
+  mostrarVista: boolean;
+  //true para mostrar lista, por default se mostrara la lista.
+
+  constructor() { 
+    this.mostrarVista=true;
+  }
+
+  verLista(){
+    this.mostrarVista=true;
+  }
+
+  verTabla(){
+    this.mostrarVista=false;
+  }
+
 }
