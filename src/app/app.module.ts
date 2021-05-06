@@ -6,17 +6,21 @@ import { HeaderComponent } from './header/header.component';
 import { VistasComponent } from './vistas/vistas.component';
 import { ListasComponent } from './listas/listas.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppRoutingModule } from './app-routing.module';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     VistasComponent,
-    ListasComponent
+    ListasComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
