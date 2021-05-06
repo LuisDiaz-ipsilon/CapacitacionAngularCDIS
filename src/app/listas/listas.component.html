@@ -1,13 +1,36 @@
-<div *ngFor="let auto of automoviles">
+<!--div *ngFor="let auto of automoviles">
     <div class="list">
-        <p (click)="onSelect(auto)">{{auto.submarca}}</p>
+        <p (click)="onSelect(auto)">{{ auto.submarca }}</p>
     </div>
-
-
-
 </div>
-<hr>
+<hr />
 <div *ngIf="habilitarDesc">
-    Marca: {{autoSelect.marca}}
-    <hr>Descripcion del auto: {{autoSelect.descripcion}}
-</div>
+    Marca: {{ autoSelect.marca }}
+    <hr /> Descripcion del auto: {{ autoSelect.descripcion }}
+</div-->
+
+<!--div *ngFor="let auto of automoviles">
+    <p>
+        <button type="button" class="btn btn-outline-primary" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+      {{ auto.submarca }}
+    </button>
+    </p>
+    <div #collapse="ngbCollapse" [(ngbCollapse)]="!isCollapsed">
+        <div class="card">
+            <div class="card-body">
+                Marca: {{ autoSelect.marca }}
+                <hr /> Descripcion del auto: {{ autoSelect.descripcion }}
+            </div>
+        </div>
+    </div>
+</div!-->
+
+<hr>
+
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel title={{auto.submarca}} *ngFor="let auto of automoviles">
+        <ng-template ngbPanelContent>
+            Marca: {{auto.marca}} <br>Descripcion: {{auto.descripcion}}
+        </ng-template>
+    </ngb-panel>
+</ngb-accordion>

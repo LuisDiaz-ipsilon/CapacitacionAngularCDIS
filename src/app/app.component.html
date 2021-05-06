@@ -1,14 +1,14 @@
-<app-header>
+<app-header class="fadeAnm">
 </app-header>
 
-<div class="btnGroup">
+<div class="btnGroup" class="fadeAnm">
     <button (click)="verLista()" class="btn-material">Lista</button>
     <button (click)="verTabla()" class="btn-material">Tabla</button>
 </div>
 
-<app-vistas *ngIf="!mostrarVista">
+<app-vistas *ngIf="!mostrarVista" class="fadeAnm">
 </app-vistas>
 
 
-<app-listas *ngIf="mostrarVista">
+<app-listas *ngIf="mostrarVista" class="fadeAnm">
 </app-listas>
