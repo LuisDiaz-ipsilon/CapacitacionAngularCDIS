@@ -2,13 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { VistasComponent } from './vistas/vistas.component';
-import { ListasComponent } from './listas/listas.component';
+import { HeaderComponent } from './components/header/header.component';
+import { VistasComponent } from './components/vistas/vistas.component';
+import { ListasComponent } from './components/listas/listas.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
-import { TableComponent } from './table/table.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { TableComponent } from './components/table/table.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
   imports: [
     BrowserModule,
     NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Automovil } from '../model';
-import { AUTOMOVILES } from '../data';
+import { Automovil } from '../../model';
+import { AutosService } from '../../services/autos.service';
+
+
 
 @Component({
   selector: 'app-table',
@@ -13,12 +15,14 @@ export class TableComponent implements OnInit {
   autoSelect: Automovil;
   page = 1;
   pageSize = 4;
-  collectionSize = AUTOMOVILES.length;
+  collectionSize = 10; //colocar el lenght de lo que prefiera el us.
   autos: Automovil[];
-  constructor() { }
+  constructor(private autosService: AutosService) { }
 
   ngOnInit(): void {
-    this.automoviles = AUTOMOVILES;
+    this.autosService.getAutos().subscribe(response=>{
+      this.automoviles=response.data;
+    })
   }
 
   onSelect(auto: Automovil) {
@@ -26,7 +30,7 @@ export class TableComponent implements OnInit {
   }
 
   refreshAutos(){
-    this.autos= AUTOMOVILES
+    this.autos= this.automoviles
     .map((Automovil, i)=>({id:+1, ...Automovil}))
     .slice((this.page-1)*this.pageSize, (this.page-1)*this.pageSize+this.pageSize);
   }

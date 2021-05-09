@@ -2,19 +2,14 @@
     <thead>
         <tr>
             <th scope="col">Model</th>
-            <th scope="col">Año</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col">Lanzamiento</th>
+            <th scope="col">datos</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let auto of automoviles">
-            <th scope="row">{{ auto.submarca }}</th>
+            <th scope="row">{{ auto.marca }}</th>
             <td>
-                {{ auto.modelo }}
-            </td>
-            <td>{{ auto.descripcion}}</td>
-            <td>{{ auto.fecha_registro }}</td>
+                Modelos disponibles: {{ auto.modelos }} Descripcion: {{ auto.descripcioncorta}} Cveveh: {{ auto.Cveveh }}</td>
         </tr>
     </tbody>
 </table>

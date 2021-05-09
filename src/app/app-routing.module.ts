@@ -1,10 +1,10 @@
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { ListasComponent } from './listas/listas.component';
-import { VistasComponent } from './vistas/vistas.component';
-import { TableComponent } from './table/table.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { ListasComponent } from './components/listas/listas.component';
+import { VistasComponent } from './components/vistas/vistas.component';
+import { TableComponent } from './components/table/table.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 const routes: Routes = [

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AUTOMOVILES } from '../data';
-import { Automovil } from '../model';
+
+import { Automovil } from '../../model';
+import { AutosService } from '../../services/autos.service';
 
 
 @Component({
@@ -14,11 +15,13 @@ export class ListasComponent implements OnInit {
   autoSelect: Automovil;
   habilitarDesc: boolean;
   public isCollapsed = false;
-  constructor() {
+  constructor(private autosService: AutosService) {
   }
 
   ngOnInit() {
-    this.automoviles = AUTOMOVILES;
+    this.autosService.getAutos().subscribe(response=>{
+      this.automoviles=response.data;
+    })
   }
 
   onSelect(auto: Automovil) {
