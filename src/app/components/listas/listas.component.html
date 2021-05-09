@@ -24,13 +24,14 @@
         </div>
     </div>
 </div!-->
-
+<hr>
+<ngb-pagination class="d-flex justify-content-start" [collectionSize]="automoviles.length" [(page)]="page" [pageSize]="pageSize"></ngb-pagination>
 <hr>
 
 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-    <ngb-panel title={{auto.marca}} *ngFor="let auto of automoviles">
+    <ngb-panel title={{auto.marca}} *ngFor="let auto of automoviles | slice: (page-1) * pageSize : page * pageSize">
         <ng-template ngbPanelContent>
-            Descripcion: {{auto.descripcion}} <br>Ocupantes: {{auto.Ocupantes}
+            Descripcion: {{auto.descripcion}} <br>Ocupantes: {{auto.Ocupantes}}
         </ng-template>
     </ngb-panel>
 </ngb-accordion>

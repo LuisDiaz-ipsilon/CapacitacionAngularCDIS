@@ -10,7 +10,8 @@ import { AutosService } from '../../services/autos.service';
   styleUrls: ['./listas.component.css']
 })
 export class ListasComponent implements OnInit {
-
+  page=1;
+  pageSize=10;
   automoviles: Automovil[];
   autoSelect: Automovil;
   habilitarDesc: boolean;

@@ -13,11 +13,13 @@ export class TableComponent implements OnInit {
   
   automoviles: Automovil[];
   autoSelect: Automovil;
-  page = 1;
-  pageSize = 4;
-  collectionSize = 10; //colocar el lenght de lo que prefiera el us.
+  page=1;
+  pageSize=10;
   autos: Automovil[];
-  constructor(private autosService: AutosService) { }
+  constructor(private autosService: AutosService) { 
+    //this.refreshAutos();
+
+  }
 
   ngOnInit(): void {
     this.autosService.getAutos().subscribe(response=>{
@@ -29,9 +31,10 @@ export class TableComponent implements OnInit {
     this.autoSelect = auto;
   }
 
+
   refreshAutos(){
     this.autos= this.automoviles
-    .map((Automovil, i)=>({id:+1, ...Automovil}))
+    .map((Automovil, i)=>({id: i + 1, ...Automovil}))
     .slice((this.page-1)*this.pageSize, (this.page-1)*this.pageSize+this.pageSize);
   }
 

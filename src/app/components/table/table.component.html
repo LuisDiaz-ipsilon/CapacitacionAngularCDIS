@@ -1,26 +1,26 @@
+<hr>
+<ngb-pagination class="d-flex justify-content-start" [collectionSize]="automoviles.length" [(page)]="page" [pageSize]="pageSize"></ngb-pagination>
+<hr>
+
 <table class="table table-striped">
     <thead>
         <tr>
-            <th scope="col">Model</th>
-            <th scope="col">datos</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelos</th>
+            <th scope="col">Descripcion corta</th>
+            <th scope="col">Cveveh</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let auto of automoviles">
+        <tr *ngFor="let auto of automoviles | slice: (page-1) * pageSize : page * pageSize">
             <th scope="row">{{ auto.marca }}</th>
-            <td>
-                Modelos disponibles: {{ auto.modelos }} Descripcion: {{ auto.descripcioncorta}} Cveveh: {{ auto.Cveveh }}</td>
+            <td>Modelos disponibles: {{ auto.modelos }}</td>
+            <td>Descripcion: {{ auto.descripcioncorta}}</td>
+            <td>CVEVEH: {{ auto.Cveveh }}</td>
+            <td><i class="fas fa-trash-alt"></i></td>
+            <td><i class="far fa-edit"></i></td>
         </tr>
     </tbody>
 </table>
-
-<div class="d-flex justify-content-between p-2">
-    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshAutos()">
-    </ngb-pagination>
-
-    <!--select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshAutos()">
-    <option [ngValue]="2">2 items per page</option>
-    <option [ngValue]="4">4 items per page</option>
-    <option [ngValue]="6">6 items per page</option>
-  </select-->
-</div>
