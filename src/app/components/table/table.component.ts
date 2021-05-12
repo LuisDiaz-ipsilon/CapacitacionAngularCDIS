@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Automovil } from '../../model';
 import { AutosService } from '../../services/autos.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalAddUpdateComponent } from '../modals/modal-add-update/modal-add-update.component';
 
 
 
@@ -16,15 +18,25 @@ export class TableComponent implements OnInit {
   page=1;
   pageSize=10;
   autos: Automovil[];
-  constructor(private autosService: AutosService) { 
+  constructor(private autosService: AutosService, private modalService: NgbModal) { 
     //this.refreshAutos();
 
   }
 
+
   ngOnInit(): void {
+    this.pageSize=10;
+    this.page=1;
     this.autosService.getAutos().subscribe(response=>{
       this.automoviles=response.data;
     })
+  }
+
+  openModalEdit(auto: Automovil) {
+    const modalRef = this.modalService.open(ModalAddUpdateComponent, { centered: true });
+    modalRef.componentInstance.auto= auto;
+    modalRef.componentInstance.accion= 'Editor de auto';
+
   }
 
   onSelect(auto: Automovil) {

@@ -1,0 +1,47 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{accion}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cancelado')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="modal-body">
+
+    <div class="form-group">
+        <input class="form-control form-control-sm" type="text" placeholder="Marca">
+    </div>
+
+    <div class="form-group">
+        <input disabled class="form-control form-control-sm" type="text" placeholder="Modelos">
+    </div>
+
+    <div class="form-group">
+        <input class="form-control form-control-sm" type="text" placeholder="ID">
+    </div>
+
+    <div class="form-group">
+        <input class="form-control form-control-sm" type="text" placeholder="CVEVEH">
+    </div>
+
+    <div class="form-group">
+        <input class="form-control form-control-sm" type="text" placeholder="Descripcion">
+    </div>
+
+    <div class="form-group">
+        <input class="form-control form-control-sm" type="text" placeholder="Descripcion corta">
+    </div>
+
+    <div class="form-group">
+        <input class="form-control form-control-sm" type="text" placeholder="Ocupantes">
+    </div>
+
+    <div class="form-group">
+        <input class="form-control form-control-sm" type="text" placeholder="submarca">
+    </div>
+
+    <div>
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Guardar</button>
+    </div>
+
+
+</div>

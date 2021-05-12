@@ -20,7 +20,7 @@
             <td>Descripcion: {{ auto.descripcioncorta}}</td>
             <td>CVEVEH: {{ auto.Cveveh }}</td>
             <td><i class="fas fa-trash-alt"></i></td>
-            <td><i class="far fa-edit"></i></td>
+            <td (click)="openModalEdit(auto)"><i class="far fa-edit"></i></td>
         </tr>
     </tbody>
 </table>

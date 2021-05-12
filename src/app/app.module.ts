@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { VistasComponent } from './components/vistas/vistas.component';
 import { ListasComponent } from './components/listas/listas.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { TableComponent } from './components/table/table.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalAddUpdateComponent } from './components/modals/modal-add-update/modal-add-update.component';
+import { ModalDetailAutoComponent } from './components/modals/modal-detail-auto/modal-detail-auto.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
     VistasComponent,
     ListasComponent,
     TableComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ModalAddUpdateComponent,
+    ModalDetailAutoComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalDetailAutoComponent, ModalAddUpdateComponent]
 })
 export class AppModule { }
