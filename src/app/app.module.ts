@@ -12,6 +12,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalAddUpdateComponent } from './components/modals/modal-add-update/modal-add-update.component';
 import { ModalDetailAutoComponent } from './components/modals/modal-detail-auto/modal-detail-auto.component';
+import { FormsModule } from '@angular/forms';
+import { ConfirmDeleteComponent } from './components/modals/confirm-delete/confirm-delete.component';
+import { RangoYearDirective } from './directives/rango-year.directive';
 
 
 @NgModule({
@@ -23,13 +26,16 @@ import { ModalDetailAutoComponent } from './components/modals/modal-detail-auto/
     TableComponent,
     NotFoundComponent,
     ModalAddUpdateComponent,
-    ModalDetailAutoComponent
+    ModalDetailAutoComponent,
+    ConfirmDeleteComponent,
+    RangoYearDirective
   ],
   imports: [
     BrowserModule,
     NgbModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

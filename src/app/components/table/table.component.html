@@ -2,6 +2,11 @@
 <ngb-pagination class="d-flex justify-content-start" [collectionSize]="automoviles.length" [(page)]="page" [pageSize]="pageSize"></ngb-pagination>
 <hr>
 
+<nav class="container btnGroup" class="fadeAnm">
+    <button (click)="openModalNewAuto()" class="btn-material">Nuevo</button>
+</nav>
+<hr>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -19,7 +24,7 @@
             <td>Modelos disponibles: {{ auto.modelos }}</td>
             <td>Descripcion: {{ auto.descripcioncorta}}</td>
             <td>CVEVEH: {{ auto.Cveveh }}</td>
-            <td><i class="fas fa-trash-alt"></i></td>
+            <td><i (click)="openModalDelete(auto)" class="fas fa-trash-alt"></i></td>
             <td (click)="openModalEdit(auto)"><i class="far fa-edit"></i></td>
         </tr>
     </tbody>

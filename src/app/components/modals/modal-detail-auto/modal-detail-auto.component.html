@@ -1,1 +1,48 @@
-<p>modal-detail-auto works!</p>
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ accion }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cancelado')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+    <form #formAutos="ngForm">
+        <div class="form-group">
+            <input class="form-control form-control-sm" type="text" placeholder="Marca" [(ngModel)]="auto.marca" name="marca" />
+        </div>
+
+        <div class="form-group">
+            <input disabled class="form-control form-control-sm" type="text" placeholder="Modelos" [(ngModel)]="auto.modelos" name="modelos" />
+        </div>
+
+        <div class="form-group">
+            <input class="form-control form-control-sm" type="text" placeholder="ID" [(ngModel)]="auto._id" name="id" />
+        </div>
+
+        <div class="form-group">
+            <input class="form-control form-control-sm" type="text" placeholder="CVEVEH" [(ngModel)]="auto.Cveveh" name="Cveveh" />
+        </div>
+
+        <div class="form-group">
+            <input class="form-control form-control-sm" type="text" placeholder="Descripcion" [(ngModel)]="auto.descripcion" name="descripcion" />
+        </div>
+
+        <div class="form-group">
+            <input class="form-control form-control-sm" type="text" placeholder="Descripcion corta" [(ngModel)]="auto.descripcioncorta" name="descripcioncorta" />
+        </div>
+
+        <div class="form-group">
+            <input class="form-control form-control-sm" type="text" placeholder="Ocupantes" [(ngModel)]="auto.Ocupantes" name="ocupantes" />
+        </div>
+
+        <div class="form-group">
+            <input class="form-control form-control-sm" type="text" placeholder="Submarca" [(ngModel)]="auto.submarca" name="submarca" />
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-outline-dark" (click)="activeModal.close(auto)">
+        Enviar
+      </button>
+        </div>
+    </form>
+</div>

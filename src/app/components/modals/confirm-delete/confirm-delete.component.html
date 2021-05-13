@@ -1,0 +1,13 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Eliminar auto</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cancelado')">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <p>¿Desea eliminar este auto? <span class="text-red">{{auto.marca}}</span> </p>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondaty" (click)="activeModal.dismiss('Cancelado')">Cancelar</button>
+    <button type="button" class="btn btn-danger" (click)="activeModal.close(auto)">Eliminar</button>
+</div>
