@@ -20,9 +20,11 @@ export class TableComponent implements OnInit {
   page = 1;
   pageSize = 10;
   autos: Automovil[];
+  collectionSize: number;
   autoNew: Automovil={} as Automovil;;
   constructor(private autosService: AutosService, private modalService: NgbModal) {
-    //this.refreshAutos();
+
+    
   }
 
 
@@ -31,6 +33,7 @@ export class TableComponent implements OnInit {
     this.page = 1;
     this.autosService.getAutos().subscribe(response => {
       this.automoviles = response.data;
+      this.collectionSize= this.automoviles.length;
     })
   }
 

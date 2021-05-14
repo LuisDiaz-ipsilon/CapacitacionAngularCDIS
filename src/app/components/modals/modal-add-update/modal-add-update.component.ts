@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { Automovil } from '../../../model';
 
 @Component({
@@ -12,7 +12,13 @@ export class ModalAddUpdateComponent implements OnInit {
   accion: string;
   auto: Automovil;
 
-  constructor(public activeModal: NgbActiveModal ) { }
+  firstYear: number;
+  lastYear: number;
+  arrModels: number[];
+
+  constructor(public activeModal: NgbActiveModal ) {
+   
+   }
 
   ngOnInit(): void {
   }
@@ -20,6 +26,25 @@ export class ModalAddUpdateComponent implements OnInit {
   onSubmit(){
     this.activeModal.close(this.auto);
   }
+  
+  crearArrYears(yearI: number, yearF: number): number[]{
+    if(yearI===yearF){
+      this.arrModels[0]=yearI;
+      console.log(this.arrModels);
+    } else if (yearI<yearF){
+      let position: number=0;
+      for (let year = yearI; year <= yearF; year++) {
+        this.arrModels[position]=year;
+        position++;
+      }
+    }
+    return this.arrModels;
+  }
+
+  getArrYears(): number[]{
+    return this.arrModels;
+  }
+  
  
 
 }

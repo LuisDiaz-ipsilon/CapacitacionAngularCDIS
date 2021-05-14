@@ -1,5 +1,6 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, NG_VALIDATORS, Validator, ValidatorFn } from '@angular/forms';
+import { ModalAddUpdateComponent } from '../components/modals/modal-add-update/modal-add-update.component';
 
 @Directive({
   selector: '[appRangoYear]',
@@ -7,20 +8,21 @@ import { AbstractControl, NG_VALIDATORS, Validator, ValidatorFn } from '@angular
 })
 export class RangoYearDirective implements Validator {
 
-  @Input('appRangoYear') RangoYear: number[];
+  @Input('appRangoYear') RangoYear: string;
+
+  year: ModalAddUpdateComponent;
 
   constructor() { }
 
-  validate(control: AbstractControl): { [key: number[]]: any } {
+  validate(control: AbstractControl): { [key: string]: any } {
     return this.RangoYear ? this.RangoYearValidator(new RegExp(this.RangoYear, "i"))(control) : null;
   }
 
   RangoYearValidator(yearRe: RegExp): ValidatorFn {
 
-    return (control: AbstractControl): { [key: number[]]: any }| null => {
-      elementsArray: Number=control.value.length;
-      yearsModelArr: Number[]=control.value;
-      const rangoYear = yearRe.test();
+    return (control: AbstractControl): { [key: string]: any }| null => {
+      var yearsModelArr: number[]= this.year.getArrYears();
+      const rangoYear = yearsModelArr[0]>yearsModelArr[yearsModelArr.length]//yearRe.test();
       return rangoYear ? {'rangoYear' : { value: control }} : null;
     }
   }

@@ -8,15 +8,74 @@
 <div class="modal-body">
     <form #formAutos="ngForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <input class="form-control form-control-sm" type="text" placeholder="Marca" [(ngModel)]="auto.marca" required name="marca" #marca="ngModel" />
+            <input class="form-control form-control-sm" type="text" placeholder="Marca" [(ngModel)]="auto.marca" required minlength="4" name="marca" #marca="ngModel" />
         </div>
 
-        <div [hidden]="marca.valid || marca.pristine" class="alert alert-danger">
-            Complete la marca
+        <div *ngIf="marca.invalid && (marca.dirty || marca.touched)">
+            <div *ngIf="marca.errors.minlength" class="alert alert-danger">La marca debe tener mas de 4 letras</div>
         </div>
 
         <div class="form-group">
-            <input disabled class="form-control form-control-sm" type="text" placeholder="Modelos" [(ngModel)]="auto.modelos" required name="modelos" #modelos="ngModel" />
+            <input disabled class="form-control form-control-sm" type="text" placeholder="crearArrYears()" [(ngModel)]="auto.modelos" required name="modelos" #modelos="ngModel" appRangoYear="autos.modelos" />
+            <hr>
+
+
+            <select id="yearI" class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="auto.modelos" #yearI="ngModel" required name="yearI">
+                <option >Selecciono el primer año</option>
+                <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+                <option value="2004">2004</option>
+                <option value="2005">2005</option>
+                <option value="2006">2006</option>
+                <option value="2007">2007</option>
+                <option value="2008">2008</option>
+                <option value="2009">2009</option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+            </select>
+
+
+            <select id="yearF" class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="auto.modelos" #yearF="ngModel" required name="yearF">
+                <option >Selecciono el ultimo año</option>
+                <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+                <option value="2004">2004</option>
+                <option value="2005">2005</option>
+                <option value="2006">2006</option>
+                <option value="2007">2007</option>
+                <option value="2008">2008</option>
+                <option value="2009">2009</option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+            </select>
+        </div>
+
+        <hr>
+
+        <div *ngIf="yearF.dirty || yearF.touched">
+            <div *ngIf="yearF.errors.rangoYear"></div>
         </div>
 
         <div class="form-group">
@@ -40,7 +99,7 @@
         </div>
 
         <div class="form-group">
-            <input class="form-control form-control-sm" type="text" placeholder="Submarca" [(ngModel)]="auto.submarca" required name="submarca" #submarca="ngModel" />
+            <input class="form-control form-control-sm" type="text" placeholder="Submarca" [(ngModel)]="auto.submarca" required minlength="4" name="submarca" #submarca="ngModel" />
         </div>
 
         <div *ngIf="submarca.invalid && (submarca.dirty || submarca.touched)">
@@ -48,7 +107,7 @@
         </div>
 
         <div>
-            <button type="submit" class="btn btn-outline-dark" [disabled]="!formAutos.form.valid">
+            <button (click)="crearArrYears(yearI, yearF)" type="submit" class="btn btn-outline-dark" [disabled]="!formAutos.form.valid">
         Guardar
       </button>
         </div>
