@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'vistas', component: VistasComponent },
   { path: 'list', component: ListasComponent },
   { path: 'table', component: TableComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'list' },
+  { path: '', redirectTo: 'list', pathMatch: 'full' },
   { path: '**', component:  NotFoundComponent }
 ];
 
